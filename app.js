@@ -6,13 +6,17 @@ const cookieParser   = require('cookie-parser');
 const logger         = require('morgan');
 const bodyParser     = require('body-parser');
 const passport       = require('passport');
-const mongoose       = require('mongoose');
+
 const flash          = require('connect-flash');
 const User           = require('./models/user');
 const session        = require('express-session');
 const methodOverride = require('method-override');
-const dotenv = require('.env');
-dotenv.config();
+require('dotenv').config({path:'.env'});
+const mongoose       = require('mongoose');
+
+const MONGO_KEY = process.env.MONGO_KEY;
+
+
 
 
 
@@ -20,18 +24,51 @@ dotenv.config();
 const indexRouter = require('./routes/index');
 
 const app = express();
+// const connectDB = async () => {
+
+// await mongoose.connect(MONGO_KEY, 
+//   { useUnifiedTopology: true,
+//     useNewUrlParser: true });
+    
+//     console.log('db connected');
+//     connectDB();
+// };
+
+
+
+
 
 //connect to the database
 //const url = 'mongodb://localhost:27017/soccer-forum';
-const url = process.env.url;
-mongoose.connect(url, { useNewUrlParser: true });
-mongoose.set('useCreateIndex', true);
-mongoose.set('useFindAndModify', false);
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error'));
-db.once('open', ()=>{
-console.log("we're connected ");
-});
+
+// mongoose.connect(MONGO_KEY,
+//    { useUnifiedTopology: true },
+//    { useNewUrlParser: true });
+
+// mongoose.set('useCreateIndex', true);
+// mongoose.set('useFindAndModify', false);
+
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error'));
+// db.once('open', ()=>{
+// console.log("we're connected ");
+// });
+
+connectDB =  () => {
+  const MONGO_KEY = process.env.MONGO_KEY;
+   mongoose.connect(MONGO_KEY, 
+    { useUnifiedTopology: true, 
+      useNewUrlParser: true, 
+      useCreateIndex: true })
+    .then(() => {
+      console.log("mongoDB connected");
+    })
+    .catch(err => {
+      console.error("Error:", err);
+    });
+}
+connectDB();
+
 
 
 
