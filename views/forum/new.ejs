@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate') -%>
+
+
+
+<header class="jumbotron">
+    <h1>Create a Post</h1>
+    </header>
+
+    <form class="form" action="/forum" method="POST">
+   
+        <label for="image"><b>Image</b></label>
+        <input type="text" id="postImage" name="postImage">
+        
+        <label for="title"><b>Title</b></label>
+        <input type="text" id="postTitle" name="postTitle" required>
+
+        <label for="description"><b>Description</b></label>
+        <input type="text" id="postDescription" name="postDescription" required>
+    
+        <button class="btn btn-lg btn-success" type="submit">Submit</button>
+    </form>
+    <br>

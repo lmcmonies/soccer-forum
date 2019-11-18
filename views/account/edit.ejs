@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') -%>
+
+<form class="form"action="/account/<%= currentUser.id %>?_method=PUT" method="POST" id="update-account">
+    <div class="container">
+      <h1>Edit Profile</h1>
+      
+      <hr class="style-two">
+
+      <label for="email"><b>Email</b></label>
+      <input type="email" id="email" value="<%= currentUser.email %>" name="email" required>
+  
+      <label for="username"><b>Username</b></label>
+      <input type="text" id="username" value="<%= currentUser.username %>" name="username" required>
+  
+      <label for="current-password"><b>Current Password</b></label>
+      <input type="password" id="current-password" placeholder="Current Password" name="currentPassword"required>
+
+      <label for="new-password"><b>New Password</b></label>
+      <input type="password" id="new-password" placeholder="New Password" name="newPassword">
+
+      <label for="confirm-new-password"><b>Confirm New Password</b></label>
+      <input type="password" id="confirm-password" placeholder="Confirm New Password" name="confirmationPassword">
+      <div id="validation-message"></div>
+      
+      <label for="userFirstName"><b>First Name</b></label>
+      <input type="text" id="firstname" value="<%= currentUser.userFirstName %>" name="userFirstName" required>
+      
+      <label for="lastname"><b>Last Name</b></label>
+      <input type="text" id="lastname" value="<%= currentUser.userLastName %>" name="userLastName" required>
+       
+      <label for="avatar"><b>Avatar URL</b></label>
+      <input type="text" id="avatar" value="<%= currentUser.userAvatar %>" name="userAvatar" required>
+    
+     
+      
+      <button type="submit" class="btn btn-success">Update</button>
+    </div>
+    </form>
+
+    <script src="/javascripts/account.js"></script>
+    <br>

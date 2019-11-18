@@ -1,0 +1,16 @@
+<% layout('layouts/boilerplate') -%>
+<header class="jumbotron">
+        <h1>Edit Comment</h1>
+        </header>
+        <hr class="style-two">
+    
+        <form class="form" action="/forum/<%= post._id %>/comments/<%= foundComment._id %>?_method=PUT" method="POST">
+       
+            <label for="comment"><h5><b>Comment</b></h5></label>
+            <input type="text" id="comment" name="comment[commentText]" value="<%= foundComment.commentText %>"required>
+        
+           
+        
+            <button class="btn btn-lg btn-success">Submit</button>
+        </form>
+        <br>

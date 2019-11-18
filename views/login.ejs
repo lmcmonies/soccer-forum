@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+       <title>Login</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">          
+      </head>
+      <div class="container">
+        <% if(error && error.length > 0) { %>
+      <div class="alert alert-danger" role="alert">
+          <%= error %>
+        </div>
+        <% } %>
+        </div>
+       
+    
+<form class="form" action="/login" method="POST">
+        <div class="container">
+                <h1 class="text-center">Login</h1>
+                <hr class="style-two">
+        
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+      
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+          
+          
+          <button type="submit" class="btn btn-success">Login</button>
+          <br>
+          <br>
+          <a class="btn btn-danger" href="/landing">Cancel</a>   
+        </div>
+      
+        
+         
+        
+      </form>

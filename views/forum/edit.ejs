@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate') -%>
+
+
+
+<header class="jumbotron">
+    <h1>Edit Post</h1>
+    </header>
+
+    <form class="form"action="/forum/<%= post._id %>/?_method=PUT" method="POST">
+   
+        <label for="image"><b>Image</b></label>
+        <input type="text" id="postImage" value="<%= post.postImage %>"name="post[postImage]">
+        
+        <label for="title"><b>Title</b></label>
+        <input type="text" id="postTitle"value="<%= post.postTitle %>" name="post[postTitle]" required>
+
+        <label for="description"><b>Description</b></label>
+        <input type="text" id="postDescription"value="<%= post.postDescription %>" name="post[postDescription]" required>
+    
+        <button class="btn btn-lg btn-success">Submit</button>
+    </form>
+    <br>
