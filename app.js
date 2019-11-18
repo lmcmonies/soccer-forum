@@ -14,46 +14,13 @@ const methodOverride = require('method-override');
 require('dotenv').config({path:'.env'});
 const mongoose       = require('mongoose');
 
-const MONGO_KEY = process.env.MONGO_KEY;
-
-
-
-
-
 //require routes
 const indexRouter = require('./routes/index');
 
 const app = express();
-// const connectDB = async () => {
-
-// await mongoose.connect(MONGO_KEY, 
-//   { useUnifiedTopology: true,
-//     useNewUrlParser: true });
-    
-//     console.log('db connected');
-//     connectDB();
-// };
-
-
-
-
 
 //connect to the database
 //const url = 'mongodb://localhost:27017/soccer-forum';
-
-// mongoose.connect(MONGO_KEY,
-//    { useUnifiedTopology: true },
-//    { useNewUrlParser: true });
-
-// mongoose.set('useCreateIndex', true);
-// mongoose.set('useFindAndModify', false);
-
-// const db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error'));
-// db.once('open', ()=>{
-// console.log("we're connected ");
-// });
-
 connectDB =  () => {
   const MONGO_KEY = process.env.MONGO_KEY;
    mongoose.connect(MONGO_KEY, 
