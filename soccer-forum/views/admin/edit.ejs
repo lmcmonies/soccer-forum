@@ -1,0 +1,33 @@
+<% layout('layouts/boilerplate') -%>
+<form class="form"action="/admin/<%= user.id %>?_method=PUT" method="POST">
+    <div class="container">
+      <h1 class="text-center">Edit User</h1>
+      
+      <hr class="style-two">
+
+      <label for="email"><b>Email</b></label>
+      <input type="email" id="email" value="<%= user.email %>" name="user[email]" required>
+  
+      <label for="username"><b>Username</b></label>
+      <input type="text" id="username" value="<%= user.username %>" name="user[username]" required>
+  
+      <label for="userFirstName"><b>First Name</b></label>
+      <input type="text" id="firstname" value="<%= user.userFirstName %>" name="user[userFirstName]" required>
+      
+      <label for="lastname"><b>Last Name</b></label>
+      <input type="text" id="lastname" value="<%= user.userLastName %>" name="user[userLastName]" required>
+       
+      <label for="avatar"><b>Avatar URL</b></label>
+      <input type="text" id="avatar" value="<%= user.userAvatar %>" name="user[userAvatar]" required>
+
+      <label for="hasPaid"><b>User Payment Status</b></label>
+      <input type="text" id="hasPaid" value="<%= user.hasPaid %>" name="user[hasPaid]" required>
+
+      <label for="subscription"><b>User Subscription</b></label>
+      <input type="text" id="subscription" value="<%= user.subscription%>" name="user[subscription]" required>
+    </script>
+      
+      <button type="submit" class="btn btn-success">Update</button>
+    </div>
+    </form>
+    <br>

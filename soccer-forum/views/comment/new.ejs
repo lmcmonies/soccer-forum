@@ -1,0 +1,19 @@
+<% layout('layouts/boilerplate') -%>
+
+
+
+<header class="jumbotron">
+    <h1>Leave a Comment</h1>
+    </header>
+    <hr class="style-two">
+
+    <form class="form" action="/forum/<%= post._id %>/comments" method="POST">
+   
+        <label for="comment"><h5><b>Comment</b></h5></label>
+        <input type="text" id="comment" name="comment[commentText]" required>
+    
+       
+    
+        <button class="btn btn-lg btn-success">Submit</button>
+    </form>
+    <br>

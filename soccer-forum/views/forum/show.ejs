@@ -1,0 +1,73 @@
+<% layout('layouts/boilerplate') -%>
+
+
+
+<header class="jumbotron">
+    <h1>Post Info</h1>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+    <div class="col-sm-12 " style="width:100%;">
+   
+  <div class="card img-top img-fluid" style="width: 50rem;">
+    <div class = "card-block">
+          <img class="card-img-top" src="<%= foundPost.postImage %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= foundPost.postTitle %></h5>
+            <p class="card-title"><%= foundPost.postDescription %></p>
+            <p>
+              Submitted By <strong><em><%= foundPost.postAuthor.username %></em></strong>
+              <hr class="style-two">
+              <% if((foundPost.postAuthor.id.equals(currentUser._id)) || (currentUser &&currentUser.isAdmin)){ %>
+              <div class="text-right">
+              <a class="btn btn-warning" href="/forum/<%= foundPost._id %>/edit">Edit</a>
+              <form id="delete-form" class="form" action="/forum/<%= foundPost._id %>/?_method=DELETE" method="POST">
+              <button class="btn btn-danger delete-button"type="submit">Delete</button>
+              </form>
+              <% } %>
+            </div>  
+            </p>
+              
+            <div id="cardComment" class="card card-body bg-light">
+               
+                <br>
+
+    <% foundPost.comments.forEach(function(comment){ %>
+    <div class="row">
+      <div class="col-md-12">
+     <strong><%= comment.commentAuthor.username %></strong>
+      <p>
+      <%= comment.commentText %>
+      <br>
+     <em> <span class="float-right"><%= moment(comment.commentDate).fromNow(); %> </span></em>
+      </p>
+      <% if((comment.commentAuthor.id.equals(currentUser._id)) || (currentUser &&currentUser.isAdmin)){ %>
+      <a class="btn btn-sm btn-warning" 
+      href="/forum/<%= foundPost._id %>/comments/<%= comment._id %>/edit">
+      Edit</a>
+      <form id="delete-form" class="form" action="/forum/<%= foundPost._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+      <button type="submit" class="btn btn-sm btn-danger delete-button-small">Delete</button>
+    </form>
+    <% } %>
+
+      <br>
+      <br>
+    </div>
+  </div>
+
+      <% }) %>
+      <div class="text-left">
+          <a class="btn btn-success" href="/forum/<%= foundPost._id %>/comments/new">Leave a Comment</a>
+        
+      </div>
+    </div>
+          </div> 
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+<br>
+
+      

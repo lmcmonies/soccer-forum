@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">          
+      </head>
+      <header class="jumbotron">
+        <h1>Payment</h1>
+        </header>
+        <div class="container-fluid">
+          <div class="row">
+        <div class="card" style="width: 35rem;">
+            <img class="card-img-top" src="https://s8333.pcdn.co/wp-content/uploads/edd/2019/03/stripe-product-image.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Dunfermline Athletic App Subscription</h5>
+              <p class="card-text">You have reached the secure payment page. The subscription cost for 1 year is £100.</p>
+          </div>
+            </div>
+          </div>
+          </div>
+<section class="py-2">
+        <div class="row">
+          <div class="col-md-6 col-lg-12 text-center">
+            
+            <form class="form"action="/charge?_method=PUT" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= stripePublishableKey %>"
+                data-amount="10000"
+                data-name="Subscription"
+                data-description="1 year subscription for the Dunfermline Athletic App"
+                data-locale="auto">
+              </script>
+              <script>
+                // Hide default stripe button
+                document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+              </script>
+              <button type="submit" class="btn bg-warning text-dark btn-lg">Purchase</button>
+            </form>
+          </div>
+          
+        </div>
+      </section>

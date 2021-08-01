@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') -%>
+
+
+
+<header class="jumbotron">
+    <h1>Fans Forum</h1>
+    <br>
+    <hr class="style-two">
+    <br>
+    <a  href="/forum/new" class="btn btn-lg btn-success">Create a Post</a>
+
+    </header>
+  
+  
+   
+    <div class="container-fluid">
+       
+      <div class="row">
+          <% posts.forEach(function(post){ %>
+      <div class="col-lg-4 col-sm-6">
+        <div class="card img-fluid" style="width: 40rem;">
+          <div class="card-block">
+              <img class="card-img-top" id="indexCard" src="<%= post.postImage %>" alt="Card image cap">
+               <div class="card-body">
+               <h5 class="card-title"><%= post.postTitle %></h5>
+               <hr class="style-two">
+               <a href="/forum/<%= post._id %>" class="btn btn-primary">More Info</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    
+    </div>
+         
+          
+  

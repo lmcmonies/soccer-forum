@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate') -%>
+<div class="container">
+    <% if(error && error.length > 0) { %>
+  <div class="alert alert-danger" role="alert">
+      <%= error %>
+    </div>
+    <% } %>
+    </div>
+<% if(currentUser && currentUser.isAdmin){ %>
+    
+    <header class="jumbotron bg-warning">
+            <h1 style="text-align:center;">Admin Account</h1>
+            </header>
+<% } %>
+<header class="jumbotron">
+        <h1 style="text-align:center;">Welcome to The Soccer Forum!</h1>
+        </header>
